@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using System.Net;
 using Newtonsoft.Json;
 
@@ -62,6 +63,11 @@ namespace SwissTransport
             return null;
         }
 
+        public object GetConnections(string text)
+        {
+            throw new NotImplementedException();
+        }
+
         private static WebRequest CreateWebRequest(string url)
         {
             var request = WebRequest.Create(url);
@@ -71,6 +77,11 @@ namespace SwissTransport
             request.Proxy = webProxy;
             
             return request;
+        }
+
+        public Connections GetConnectionsWithTime(string formStation, string toStattion, DateTime time)
+        {
+            throw new NotImplementedException();
         }
     }
 }

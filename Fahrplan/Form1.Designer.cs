@@ -33,24 +33,26 @@ namespace Fahrplan
             this.VerbindungSuchenButton = new System.Windows.Forms.Button();
             this.VonLabel = new System.Windows.Forms.Label();
             this.NachLabel = new System.Windows.Forms.Label();
-            this.DatumLabel = new System.Windows.Forms.Label();
-            this.ZeitLabel = new System.Windows.Forms.Label();
+            this.DatumZeitLabel = new System.Windows.Forms.Label();
             this.comboBoxVon = new System.Windows.Forms.ComboBox();
             this.comboBoxNach = new System.Windows.Forms.ComboBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.listBoxVerbindungen = new System.Windows.Forms.ListBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.dateTimePickerZeit = new System.Windows.Forms.DateTimePicker();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.tabPageStationen = new System.Windows.Forms.TabPage();
+            this.label1 = new System.Windows.Forms.Label();
+            this.tabPageAbfahrtsplan = new System.Windows.Forms.TabPage();
+            this.EmailButton = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.EmailLabel = new System.Windows.Forms.Label();
             this.listBoxAbfahrtsplan = new System.Windows.Forms.ListBox();
             this.StationsortAnzeigenButton = new System.Windows.Forms.Button();
             this.AbfahrtsplanAnzeigenButton = new System.Windows.Forms.Button();
             this.comboBoxStation = new System.Windows.Forms.ComboBox();
             this.StationLabel = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
-            this.tabPage1.SuspendLayout();
-            this.tabPage2.SuspendLayout();
+            this.tabPageStationen.SuspendLayout();
+            this.tabPageAbfahrtsplan.SuspendLayout();
             this.SuspendLayout();
             // 
             // VerbindungSuchenButton
@@ -81,23 +83,14 @@ namespace Fahrplan
             this.NachLabel.TabIndex = 4;
             this.NachLabel.Text = "Nach";
             // 
-            // DatumLabel
+            // DatumZeitLabel
             // 
-            this.DatumLabel.AutoSize = true;
-            this.DatumLabel.Location = new System.Drawing.Point(6, 75);
-            this.DatumLabel.Name = "DatumLabel";
-            this.DatumLabel.Size = new System.Drawing.Size(49, 17);
-            this.DatumLabel.TabIndex = 5;
-            this.DatumLabel.Text = "Datum";
-            // 
-            // ZeitLabel
-            // 
-            this.ZeitLabel.AutoSize = true;
-            this.ZeitLabel.Location = new System.Drawing.Point(324, 75);
-            this.ZeitLabel.Name = "ZeitLabel";
-            this.ZeitLabel.Size = new System.Drawing.Size(32, 17);
-            this.ZeitLabel.TabIndex = 6;
-            this.ZeitLabel.Text = "Zeit";
+            this.DatumZeitLabel.AutoSize = true;
+            this.DatumZeitLabel.Location = new System.Drawing.Point(6, 75);
+            this.DatumZeitLabel.Name = "DatumZeitLabel";
+            this.DatumZeitLabel.Size = new System.Drawing.Size(77, 17);
+            this.DatumZeitLabel.TabIndex = 5;
+            this.DatumZeitLabel.Text = "Datum/Zeit";
             // 
             // comboBoxVon
             // 
@@ -115,12 +108,13 @@ namespace Fahrplan
             this.comboBoxNach.Name = "comboBoxNach";
             this.comboBoxNach.Size = new System.Drawing.Size(222, 24);
             this.comboBoxNach.TabIndex = 8;
+            this.comboBoxNach.DropDown += new System.EventHandler(this.comboBoxNach_DropDown);
             // 
             // dateTimePicker1
             // 
             this.dateTimePicker1.Location = new System.Drawing.Point(9, 95);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(241, 22);
+            this.dateTimePicker1.Size = new System.Drawing.Size(320, 22);
             this.dateTimePicker1.TabIndex = 9;
             this.dateTimePicker1.Value = new System.DateTime(2019, 12, 18, 13, 12, 47, 0);
             // 
@@ -130,62 +124,89 @@ namespace Fahrplan
             this.listBoxVerbindungen.ItemHeight = 16;
             this.listBoxVerbindungen.Location = new System.Drawing.Point(9, 177);
             this.listBoxVerbindungen.Name = "listBoxVerbindungen";
-            this.listBoxVerbindungen.Size = new System.Drawing.Size(540, 228);
+            this.listBoxVerbindungen.Size = new System.Drawing.Size(774, 228);
             this.listBoxVerbindungen.TabIndex = 11;
             // 
             // tabControl1
             // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.tabPageStationen);
+            this.tabControl1.Controls.Add(this.tabPageAbfahrtsplan);
             this.tabControl1.Location = new System.Drawing.Point(1, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(797, 449);
             this.tabControl1.TabIndex = 12;
             // 
-            // tabPage1
+            // tabPageStationen
             // 
-            this.tabPage1.Controls.Add(this.dateTimePickerZeit);
-            this.tabPage1.Controls.Add(this.comboBoxVon);
-            this.tabPage1.Controls.Add(this.listBoxVerbindungen);
-            this.tabPage1.Controls.Add(this.VonLabel);
-            this.tabPage1.Controls.Add(this.VerbindungSuchenButton);
-            this.tabPage1.Controls.Add(this.comboBoxNach);
-            this.tabPage1.Controls.Add(this.ZeitLabel);
-            this.tabPage1.Controls.Add(this.dateTimePicker1);
-            this.tabPage1.Controls.Add(this.NachLabel);
-            this.tabPage1.Controls.Add(this.DatumLabel);
-            this.tabPage1.Location = new System.Drawing.Point(4, 25);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(789, 420);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Stationen";
-            this.tabPage1.UseVisualStyleBackColor = true;
-            this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
+            this.tabPageStationen.Controls.Add(this.label1);
+            this.tabPageStationen.Controls.Add(this.comboBoxVon);
+            this.tabPageStationen.Controls.Add(this.listBoxVerbindungen);
+            this.tabPageStationen.Controls.Add(this.VonLabel);
+            this.tabPageStationen.Controls.Add(this.VerbindungSuchenButton);
+            this.tabPageStationen.Controls.Add(this.comboBoxNach);
+            this.tabPageStationen.Controls.Add(this.dateTimePicker1);
+            this.tabPageStationen.Controls.Add(this.NachLabel);
+            this.tabPageStationen.Controls.Add(this.DatumZeitLabel);
+            this.tabPageStationen.Location = new System.Drawing.Point(4, 25);
+            this.tabPageStationen.Name = "tabPageStationen";
+            this.tabPageStationen.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageStationen.Size = new System.Drawing.Size(789, 420);
+            this.tabPageStationen.TabIndex = 0;
+            this.tabPageStationen.Text = "Stationen";
+            this.tabPageStationen.UseVisualStyleBackColor = true;
+            this.tabPageStationen.Click += new System.EventHandler(this.tabPageStationen_Click);
             // 
-            // dateTimePickerZeit
+            // label1
             // 
-            this.dateTimePickerZeit.Location = new System.Drawing.Point(327, 95);
-            this.dateTimePickerZeit.Name = "dateTimePickerZeit";
-            this.dateTimePickerZeit.Size = new System.Drawing.Size(121, 22);
-            this.dateTimePickerZeit.TabIndex = 12;
-            this.dateTimePickerZeit.ValueChanged += new System.EventHandler(this.dateTimePickerZeit_ValueChanged);
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(590, 14);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(0, 17);
+            this.label1.TabIndex = 13;
             // 
-            // tabPage2
+            // tabPageAbfahrtsplan
             // 
-            this.tabPage2.Controls.Add(this.listBoxAbfahrtsplan);
-            this.tabPage2.Controls.Add(this.StationsortAnzeigenButton);
-            this.tabPage2.Controls.Add(this.AbfahrtsplanAnzeigenButton);
-            this.tabPage2.Controls.Add(this.comboBoxStation);
-            this.tabPage2.Controls.Add(this.StationLabel);
-            this.tabPage2.Location = new System.Drawing.Point(4, 25);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(789, 420);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Abfahrtsplan";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.tabPageAbfahrtsplan.Controls.Add(this.EmailButton);
+            this.tabPageAbfahrtsplan.Controls.Add(this.textBox1);
+            this.tabPageAbfahrtsplan.Controls.Add(this.EmailLabel);
+            this.tabPageAbfahrtsplan.Controls.Add(this.listBoxAbfahrtsplan);
+            this.tabPageAbfahrtsplan.Controls.Add(this.StationsortAnzeigenButton);
+            this.tabPageAbfahrtsplan.Controls.Add(this.AbfahrtsplanAnzeigenButton);
+            this.tabPageAbfahrtsplan.Controls.Add(this.comboBoxStation);
+            this.tabPageAbfahrtsplan.Controls.Add(this.StationLabel);
+            this.tabPageAbfahrtsplan.Location = new System.Drawing.Point(4, 25);
+            this.tabPageAbfahrtsplan.Name = "tabPageAbfahrtsplan";
+            this.tabPageAbfahrtsplan.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageAbfahrtsplan.Size = new System.Drawing.Size(789, 420);
+            this.tabPageAbfahrtsplan.TabIndex = 1;
+            this.tabPageAbfahrtsplan.Text = "Abfahrtsplan";
+            this.tabPageAbfahrtsplan.UseVisualStyleBackColor = true;
+            // 
+            // EmailButton
+            // 
+            this.EmailButton.Location = new System.Drawing.Point(579, 64);
+            this.EmailButton.Name = "EmailButton";
+            this.EmailButton.Size = new System.Drawing.Size(204, 30);
+            this.EmailButton.TabIndex = 7;
+            this.EmailButton.Text = "Email senden";
+            this.EmailButton.UseVisualStyleBackColor = true;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(579, 34);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(204, 22);
+            this.textBox1.TabIndex = 6;
+            // 
+            // EmailLabel
+            // 
+            this.EmailLabel.AutoSize = true;
+            this.EmailLabel.Location = new System.Drawing.Point(576, 14);
+            this.EmailLabel.Name = "EmailLabel";
+            this.EmailLabel.Size = new System.Drawing.Size(42, 17);
+            this.EmailLabel.TabIndex = 5;
+            this.EmailLabel.Text = "Email";
             // 
             // listBoxAbfahrtsplan
             // 
@@ -213,6 +234,7 @@ namespace Fahrplan
             this.AbfahrtsplanAnzeigenButton.TabIndex = 2;
             this.AbfahrtsplanAnzeigenButton.Text = "Abfahrtsplan anzeigen";
             this.AbfahrtsplanAnzeigenButton.UseVisualStyleBackColor = true;
+            this.AbfahrtsplanAnzeigenButton.Click += new System.EventHandler(this.AbfahrtsplanAnzeigenButton_Click);
             // 
             // comboBoxStation
             // 
@@ -221,6 +243,7 @@ namespace Fahrplan
             this.comboBoxStation.Name = "comboBoxStation";
             this.comboBoxStation.Size = new System.Drawing.Size(215, 24);
             this.comboBoxStation.TabIndex = 1;
+            this.comboBoxStation.DropDown += new System.EventHandler(this.comboBoxStation_DropDown);
             // 
             // StationLabel
             // 
@@ -238,19 +261,19 @@ namespace Fahrplan
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.tabControl1);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "SBB Fahrplan";
             this.tabControl1.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
-            this.tabPage1.PerformLayout();
-            this.tabPage2.ResumeLayout(false);
-            this.tabPage2.PerformLayout();
+            this.tabPageStationen.ResumeLayout(false);
+            this.tabPageStationen.PerformLayout();
+            this.tabPageAbfahrtsplan.ResumeLayout(false);
+            this.tabPageAbfahrtsplan.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
-        private void tabPage1_Click(object sender, EventArgs e)
+        private void tabPageStationen_Click(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+
         }
 
         private void dateTimePickerZeit_ValueChanged(object sender, EventArgs e)
@@ -262,21 +285,23 @@ namespace Fahrplan
         private System.Windows.Forms.Button VerbindungSuchenButton;
         private System.Windows.Forms.Label VonLabel;
         private System.Windows.Forms.Label NachLabel;
-        private System.Windows.Forms.Label DatumLabel;
-        private System.Windows.Forms.Label ZeitLabel;
+        private System.Windows.Forms.Label DatumZeitLabel;
         private System.Windows.Forms.ComboBox comboBoxVon;
         private System.Windows.Forms.ComboBox comboBoxNach;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.ListBox listBoxVerbindungen;
         private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.TabPage tabPageStationen;
+        private System.Windows.Forms.TabPage tabPageAbfahrtsplan;
         private System.Windows.Forms.ListBox listBoxAbfahrtsplan;
         private System.Windows.Forms.Button StationsortAnzeigenButton;
         private System.Windows.Forms.Button AbfahrtsplanAnzeigenButton;
         private System.Windows.Forms.ComboBox comboBoxStation;
         private System.Windows.Forms.Label StationLabel;
-        private System.Windows.Forms.DateTimePicker dateTimePickerZeit;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button EmailButton;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label EmailLabel;
     }
 }
 
