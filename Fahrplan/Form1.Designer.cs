@@ -33,15 +33,19 @@ namespace Fahrplan
             this.VerbindungSuchenButton = new System.Windows.Forms.Button();
             this.VonLabel = new System.Windows.Forms.Label();
             this.NachLabel = new System.Windows.Forms.Label();
-            this.DatumZeitLabel = new System.Windows.Forms.Label();
+            this.DatumLabel = new System.Windows.Forms.Label();
             this.comboBoxVon = new System.Windows.Forms.ComboBox();
             this.comboBoxNach = new System.Windows.Forms.ComboBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dtpDatum = new System.Windows.Forms.DateTimePicker();
             this.listBoxVerbindungen = new System.Windows.Forms.ListBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPageStationen = new System.Windows.Forms.TabPage();
+            this.textBoxZeit = new System.Windows.Forms.TextBox();
+            this.MSDNButton = new System.Windows.Forms.Button();
+            this.ZeitLabel = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tabPageAbfahrtsplan = new System.Windows.Forms.TabPage();
+            this.webBrowser1 = new System.Windows.Forms.WebBrowser();
             this.EmailButton = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.EmailLabel = new System.Windows.Forms.Label();
@@ -59,7 +63,7 @@ namespace Fahrplan
             // 
             this.VerbindungSuchenButton.Location = new System.Drawing.Point(9, 138);
             this.VerbindungSuchenButton.Name = "VerbindungSuchenButton";
-            this.VerbindungSuchenButton.Size = new System.Drawing.Size(244, 33);
+            this.VerbindungSuchenButton.Size = new System.Drawing.Size(241, 33);
             this.VerbindungSuchenButton.TabIndex = 2;
             this.VerbindungSuchenButton.Text = "Verbindung suchen";
             this.VerbindungSuchenButton.UseVisualStyleBackColor = true;
@@ -83,14 +87,14 @@ namespace Fahrplan
             this.NachLabel.TabIndex = 4;
             this.NachLabel.Text = "Nach";
             // 
-            // DatumZeitLabel
+            // DatumLabel
             // 
-            this.DatumZeitLabel.AutoSize = true;
-            this.DatumZeitLabel.Location = new System.Drawing.Point(6, 75);
-            this.DatumZeitLabel.Name = "DatumZeitLabel";
-            this.DatumZeitLabel.Size = new System.Drawing.Size(77, 17);
-            this.DatumZeitLabel.TabIndex = 5;
-            this.DatumZeitLabel.Text = "Datum/Zeit";
+            this.DatumLabel.AutoSize = true;
+            this.DatumLabel.Location = new System.Drawing.Point(6, 75);
+            this.DatumLabel.Name = "DatumLabel";
+            this.DatumLabel.Size = new System.Drawing.Size(49, 17);
+            this.DatumLabel.TabIndex = 5;
+            this.DatumLabel.Text = "Datum";
             // 
             // comboBoxVon
             // 
@@ -110,13 +114,13 @@ namespace Fahrplan
             this.comboBoxNach.TabIndex = 8;
             this.comboBoxNach.DropDown += new System.EventHandler(this.comboBoxNach_DropDown);
             // 
-            // dateTimePicker1
+            // dtpDatum
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(9, 95);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(320, 22);
-            this.dateTimePicker1.TabIndex = 9;
-            this.dateTimePicker1.Value = new System.DateTime(2019, 12, 18, 13, 12, 47, 0);
+            this.dtpDatum.Location = new System.Drawing.Point(9, 95);
+            this.dtpDatum.Name = "dtpDatum";
+            this.dtpDatum.Size = new System.Drawing.Size(241, 22);
+            this.dtpDatum.TabIndex = 9;
+            this.dtpDatum.Value = new System.DateTime(2019, 12, 18, 13, 12, 47, 0);
             // 
             // listBoxVerbindungen
             // 
@@ -124,7 +128,7 @@ namespace Fahrplan
             this.listBoxVerbindungen.ItemHeight = 16;
             this.listBoxVerbindungen.Location = new System.Drawing.Point(9, 177);
             this.listBoxVerbindungen.Name = "listBoxVerbindungen";
-            this.listBoxVerbindungen.Size = new System.Drawing.Size(774, 228);
+            this.listBoxVerbindungen.Size = new System.Drawing.Size(774, 244);
             this.listBoxVerbindungen.TabIndex = 11;
             // 
             // tabControl1
@@ -134,28 +138,57 @@ namespace Fahrplan
             this.tabControl1.Location = new System.Drawing.Point(1, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(797, 449);
+            this.tabControl1.Size = new System.Drawing.Size(1208, 788);
             this.tabControl1.TabIndex = 12;
             // 
             // tabPageStationen
             // 
+            this.tabPageStationen.Controls.Add(this.textBoxZeit);
+            this.tabPageStationen.Controls.Add(this.MSDNButton);
+            this.tabPageStationen.Controls.Add(this.ZeitLabel);
             this.tabPageStationen.Controls.Add(this.label1);
             this.tabPageStationen.Controls.Add(this.comboBoxVon);
             this.tabPageStationen.Controls.Add(this.listBoxVerbindungen);
             this.tabPageStationen.Controls.Add(this.VonLabel);
             this.tabPageStationen.Controls.Add(this.VerbindungSuchenButton);
             this.tabPageStationen.Controls.Add(this.comboBoxNach);
-            this.tabPageStationen.Controls.Add(this.dateTimePicker1);
+            this.tabPageStationen.Controls.Add(this.dtpDatum);
             this.tabPageStationen.Controls.Add(this.NachLabel);
-            this.tabPageStationen.Controls.Add(this.DatumZeitLabel);
+            this.tabPageStationen.Controls.Add(this.DatumLabel);
             this.tabPageStationen.Location = new System.Drawing.Point(4, 25);
             this.tabPageStationen.Name = "tabPageStationen";
             this.tabPageStationen.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageStationen.Size = new System.Drawing.Size(789, 420);
+            this.tabPageStationen.Size = new System.Drawing.Size(1200, 759);
             this.tabPageStationen.TabIndex = 0;
             this.tabPageStationen.Text = "Stationen";
             this.tabPageStationen.UseVisualStyleBackColor = true;
             this.tabPageStationen.Click += new System.EventHandler(this.tabPageStationen_Click);
+            // 
+            // textBoxZeit
+            // 
+            this.textBoxZeit.Location = new System.Drawing.Point(334, 95);
+            this.textBoxZeit.Name = "textBoxZeit";
+            this.textBoxZeit.Size = new System.Drawing.Size(100, 22);
+            this.textBoxZeit.TabIndex = 16;
+            // 
+            // MSDNButton
+            // 
+            this.MSDNButton.Location = new System.Drawing.Point(327, 138);
+            this.MSDNButton.Name = "MSDNButton";
+            this.MSDNButton.Size = new System.Drawing.Size(222, 33);
+            this.MSDNButton.TabIndex = 13;
+            this.MSDNButton.Text = "Microsoft Seite";
+            this.MSDNButton.UseVisualStyleBackColor = true;
+            this.MSDNButton.Click += new System.EventHandler(this.MSDNButton_Click);
+            // 
+            // ZeitLabel
+            // 
+            this.ZeitLabel.AutoSize = true;
+            this.ZeitLabel.Location = new System.Drawing.Point(324, 75);
+            this.ZeitLabel.Name = "ZeitLabel";
+            this.ZeitLabel.Size = new System.Drawing.Size(32, 17);
+            this.ZeitLabel.TabIndex = 15;
+            this.ZeitLabel.Text = "Zeit";
             // 
             // label1
             // 
@@ -167,6 +200,7 @@ namespace Fahrplan
             // 
             // tabPageAbfahrtsplan
             // 
+            this.tabPageAbfahrtsplan.Controls.Add(this.webBrowser1);
             this.tabPageAbfahrtsplan.Controls.Add(this.EmailButton);
             this.tabPageAbfahrtsplan.Controls.Add(this.textBox1);
             this.tabPageAbfahrtsplan.Controls.Add(this.EmailLabel);
@@ -178,23 +212,32 @@ namespace Fahrplan
             this.tabPageAbfahrtsplan.Location = new System.Drawing.Point(4, 25);
             this.tabPageAbfahrtsplan.Name = "tabPageAbfahrtsplan";
             this.tabPageAbfahrtsplan.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageAbfahrtsplan.Size = new System.Drawing.Size(789, 420);
+            this.tabPageAbfahrtsplan.Size = new System.Drawing.Size(1200, 759);
             this.tabPageAbfahrtsplan.TabIndex = 1;
             this.tabPageAbfahrtsplan.Text = "Abfahrtsplan";
             this.tabPageAbfahrtsplan.UseVisualStyleBackColor = true;
             // 
+            // webBrowser1
+            // 
+            this.webBrowser1.Location = new System.Drawing.Point(9, 292);
+            this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
+            this.webBrowser1.Name = "webBrowser1";
+            this.webBrowser1.Size = new System.Drawing.Size(1185, 461);
+            this.webBrowser1.TabIndex = 8;
+            // 
             // EmailButton
             // 
-            this.EmailButton.Location = new System.Drawing.Point(579, 64);
+            this.EmailButton.Location = new System.Drawing.Point(640, 64);
             this.EmailButton.Name = "EmailButton";
             this.EmailButton.Size = new System.Drawing.Size(204, 30);
             this.EmailButton.TabIndex = 7;
             this.EmailButton.Text = "Email senden";
             this.EmailButton.UseVisualStyleBackColor = true;
+            this.EmailButton.Click += new System.EventHandler(this.EmailButton_Click);
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(579, 34);
+            this.textBox1.Location = new System.Drawing.Point(640, 33);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(204, 22);
             this.textBox1.TabIndex = 6;
@@ -202,7 +245,7 @@ namespace Fahrplan
             // EmailLabel
             // 
             this.EmailLabel.AutoSize = true;
-            this.EmailLabel.Location = new System.Drawing.Point(576, 14);
+            this.EmailLabel.Location = new System.Drawing.Point(637, 14);
             this.EmailLabel.Name = "EmailLabel";
             this.EmailLabel.Size = new System.Drawing.Size(42, 17);
             this.EmailLabel.TabIndex = 5;
@@ -214,7 +257,7 @@ namespace Fahrplan
             this.listBoxAbfahrtsplan.ItemHeight = 16;
             this.listBoxAbfahrtsplan.Location = new System.Drawing.Point(9, 64);
             this.listBoxAbfahrtsplan.Name = "listBoxAbfahrtsplan";
-            this.listBoxAbfahrtsplan.Size = new System.Drawing.Size(564, 340);
+            this.listBoxAbfahrtsplan.Size = new System.Drawing.Size(564, 212);
             this.listBoxAbfahrtsplan.TabIndex = 4;
             // 
             // StationsortAnzeigenButton
@@ -225,6 +268,7 @@ namespace Fahrplan
             this.StationsortAnzeigenButton.TabIndex = 3;
             this.StationsortAnzeigenButton.Text = "Stationsort anzeigen";
             this.StationsortAnzeigenButton.UseVisualStyleBackColor = true;
+            this.StationsortAnzeigenButton.Click += new System.EventHandler(this.StationsortAnzeigenButton_Click);
             // 
             // AbfahrtsplanAnzeigenButton
             // 
@@ -256,12 +300,14 @@ namespace Fahrplan
             // 
             // Form1
             // 
+            this.AcceptButton = this.VerbindungSuchenButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1211, 790);
             this.Controls.Add(this.tabControl1);
             this.Name = "Form1";
             this.Text = "SBB Fahrplan";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPageStationen.ResumeLayout(false);
             this.tabPageStationen.PerformLayout();
@@ -285,10 +331,10 @@ namespace Fahrplan
         private System.Windows.Forms.Button VerbindungSuchenButton;
         private System.Windows.Forms.Label VonLabel;
         private System.Windows.Forms.Label NachLabel;
-        private System.Windows.Forms.Label DatumZeitLabel;
+        private System.Windows.Forms.Label DatumLabel;
         private System.Windows.Forms.ComboBox comboBoxVon;
         private System.Windows.Forms.ComboBox comboBoxNach;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dtpDatum;
         private System.Windows.Forms.ListBox listBoxVerbindungen;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPageStationen;
@@ -302,6 +348,10 @@ namespace Fahrplan
         private System.Windows.Forms.Button EmailButton;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label EmailLabel;
+        private System.Windows.Forms.Label ZeitLabel;
+        private System.Windows.Forms.Button MSDNButton;
+        private System.Windows.Forms.TextBox textBoxZeit;
+        private System.Windows.Forms.WebBrowser webBrowser1;
     }
 }
 
